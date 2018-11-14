@@ -18,3 +18,11 @@ import "bootstrap";
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import project_init from "./project";
+
+window.addEventListener("load", (_ev) => {
+  let root = document.getElementById('root');
+  if (root) {
+    project_init(root);
+  }
+});

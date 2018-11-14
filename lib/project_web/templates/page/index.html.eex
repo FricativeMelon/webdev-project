@@ -1,4 +1,8 @@
-<section>
-  <h1>Welcome to Vittles!</h1>
-  <p>A nutrition tracker.</p>
-</section>
+<div class="row">
+  <div class="column">
+    <h1>TODO</h1>
+    <div id="root">
+      React component loading...
+    </div>
+  </div>
+</div>
