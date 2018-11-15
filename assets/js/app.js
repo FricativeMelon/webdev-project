@@ -13,16 +13,22 @@ import "phoenix_html"
 import jQuery from 'jquery';
 window.jQuery = window.$ = jQuery;
 import "bootstrap";
+import $ from 'jquery';
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import socket from "./socket";
 import project_init from "./project";
 
-window.addEventListener("load", (_ev) => {
+function start() {
   let root = document.getElementById('root');
   if (root) {
-    project_init(root);
+    socket.connect();
+    let channel = socket.channel("vittles:" + window.gameName, {});
+    project_init(root, channel);
   }
-});
+}
+
+$(start);
