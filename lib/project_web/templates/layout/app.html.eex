@@ -11,19 +11,41 @@
     </script>
   </head>
   <body>
-    <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <div class="col-12">
-      <h1> Enter your email and password to access Vittles </h1>
-        <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
-          <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
-          <%= password_input(f, :password, class: "form-control", placeholder: "pass") %>
-          <%= submit "Login", class: "btn btn-secondaty" %>
+    <main class="container">
+      <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <div class="col-4">
+          <%= if @current_user do %>
+            <p class="my-3">
+              User: <%= @current_user.email %> |
+              <%= link("Logout", to: Routes.session_path(@conn, :delete), method: :delete) %>
+            </p>
+          <% else %>
+          <div class="col-12">
+            <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
+              <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
+              <%= password_input(f, :password, class: "form-control", placeholder: "password") %>
+              <%= submit "Login", class: "btn btn-secondaty" %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </nav>
+      <div class="col-4">
+        <%= if @current_user do %>
+          <p> You are logged in </p>
+        <% else %>
+        <div class="d-inline">
+          <p> Don't have an account yet? Register now </p>
+          <%= link "Register", to: Routes.user_path(@conn, :new) %>
+        </div>
         <% end %>
-        <%= link "Register", to: Routes.user_path(@conn, :new) %>
+      </div>
+    </div>
+        
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
+
+

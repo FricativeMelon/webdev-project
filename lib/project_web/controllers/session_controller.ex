@@ -14,4 +14,11 @@ defmodule ProjectWeb.SessionController do
             |> redirect(to: Routes.page_path(conn, :index))
         end
     end
+
+    def delete(conn, _params) do 
+        conn
+        |> delete_session(:user_id)
+        |> put_flash(:info, "Logged out.")
+        |> redirect(to: Routes.page_path(conn, :index))
+    end
 end
