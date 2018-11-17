@@ -1,0 +1,28 @@
+<h1>Listing Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Privacy</th>
+      <th>Notify freq</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for preference <- @preferences do %>
+    <tr>
+      <td><%= preference.privacy %></td>
+      <td><%= preference.notify_freq %></td>
+
+      <td>
+        <%= link "Show", to: Routes.preference_path(@conn, :show, preference) %>
+        <%= link "Edit", to: Routes.preference_path(@conn, :edit, preference) %>
+        <%= link "Delete", to: Routes.preference_path(@conn, :delete, preference), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Preference", to: Routes.preference_path(@conn, :new) %></span>

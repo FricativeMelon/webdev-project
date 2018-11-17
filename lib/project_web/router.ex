@@ -8,6 +8,7 @@ defmodule ProjectWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug ProjectWeb.Plugs.PutUserToken
+    plug ProjectWeb.Plugs.FetchSession
   end
 
   pipeline :api do
@@ -18,6 +19,15 @@ defmodule ProjectWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/users", UserController
+    resources "/preferences", PreferenceController
+    resources "/achievements", AchievementController
+    resources "/goals", GoalController
+    resources "/fooditems", FooditemController
+    resources "/notifications", NotificationController
+    resources "/friends", FriendController
+    resources "/calendars", CalendarController
+    resources "/sessions", SessionController, only: [:create], singleton: true
     post "/join", PageController, :join
     get "/game/:game", PageController, :game
   end

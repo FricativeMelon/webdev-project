@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Project.Repo
+alias Project.Users.User
+
+
+
+Repo.insert!(%User{email: "alice@example.com", name: "Alice", password_hash: "alicepassword"})
+Repo.insert!(%User{email: "bob@example.com", name: "Bob", password_hash: "bobpassword"})
+

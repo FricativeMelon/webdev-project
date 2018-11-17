@@ -1,0 +1,18 @@
+<h1>Show Fooditem</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @fooditem.name %>
+  </li>
+
+  <li>
+    <strong>Nutrition:</strong>
+    <%= @fooditem.nutrition_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.fooditem_path(@conn, :edit, @fooditem) %></span>
+<span><%= link "Back", to: Routes.fooditem_path(@conn, :index) %></span>

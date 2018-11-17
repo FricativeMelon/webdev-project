@@ -14,6 +14,14 @@
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <div class="col-12">
+      <h1> Enter your email and password to access Vittles </h1>
+        <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
+          <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
+          <%= password_input(f, :password, class: "form-control", placeholder: "pass") %>
+          <%= submit "Login", class: "btn btn-secondaty" %>
+        <% end %>
+        <%= link "Register", to: Routes.user_path(@conn, :new) %>
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>

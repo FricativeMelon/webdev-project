@@ -1,0 +1,18 @@
+<h1>Show Achievement</h1>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @achievement.user_id %>
+  </li>
+
+  <li>
+    <strong>Achievement name:</strong>
+    <%= @achievement.achievement_name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.achievement_path(@conn, :edit, @achievement) %></span>
+<span><%= link "Back", to: Routes.achievement_path(@conn, :index) %></span>

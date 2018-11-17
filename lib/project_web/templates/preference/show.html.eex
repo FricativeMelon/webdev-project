@@ -1,0 +1,18 @@
+<h1>Show Preference</h1>
+
+<ul>
+
+  <li>
+    <strong>Privacy:</strong>
+    <%= @preference.privacy %>
+  </li>
+
+  <li>
+    <strong>Notify freq:</strong>
+    <%= @preference.notify_freq %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.preference_path(@conn, :edit, @preference) %></span>
+<span><%= link "Back", to: Routes.preference_path(@conn, :index) %></span>

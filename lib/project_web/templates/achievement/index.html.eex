@@ -1,0 +1,28 @@
+<h1>Listing Achievements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Achievement name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for achievement <- @achievements do %>
+    <tr>
+      <td><%= achievement.user_id %></td>
+      <td><%= achievement.achievement_name %></td>
+
+      <td>
+        <%= link "Show", to: Routes.achievement_path(@conn, :show, achievement) %>
+        <%= link "Edit", to: Routes.achievement_path(@conn, :edit, achievement) %>
+        <%= link "Delete", to: Routes.achievement_path(@conn, :delete, achievement), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Achievement", to: Routes.achievement_path(@conn, :new) %></span>

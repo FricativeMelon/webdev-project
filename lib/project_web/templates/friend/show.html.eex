@@ -1,0 +1,18 @@
+<h1>Show Friend</h1>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @friend.user_id %>
+  </li>
+
+  <li>
+    <strong>Friend:</strong>
+    <%= @friend.friend_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.friend_path(@conn, :edit, @friend) %></span>
+<span><%= link "Back", to: Routes.friend_path(@conn, :index) %></span>

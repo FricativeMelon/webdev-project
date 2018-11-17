@@ -1,0 +1,5 @@
+<h1>Edit Preference</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.preference_path(@conn, :update, @preference)) %>
+
+<span><%= link "Back", to: Routes.preference_path(@conn, :index) %></span>

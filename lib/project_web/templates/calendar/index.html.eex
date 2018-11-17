@@ -1,0 +1,26 @@
+<h1>Listing Calendars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for calendar <- @calendars do %>
+    <tr>
+      <td><%= calendar.timestamp %></td>
+
+      <td>
+        <%= link "Show", to: Routes.calendar_path(@conn, :show, calendar) %>
+        <%= link "Edit", to: Routes.calendar_path(@conn, :edit, calendar) %>
+        <%= link "Delete", to: Routes.calendar_path(@conn, :delete, calendar), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Calendar", to: Routes.calendar_path(@conn, :new) %></span>
