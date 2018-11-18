@@ -12,6 +12,19 @@
   </head>
   <body>
     <main class="container">
+      <div class="row">
+        <div class="col card">
+            <%= if @current_user do %>
+              <p>  </p>
+            <% else %>
+            <div class="d-inline">
+              <br>
+              <p> Don't have an account yet? Register now </p>
+              <%= link "Register", to: Routes.user_path(@conn, :new) %>
+            </div>
+            <% end %>
+        </div>
+      <div class="col card">
       <nav class="navbar navbar-expand-sm navbar-light bg-white">
         <div class="col-4">
           <%= if @current_user do %>
@@ -21,6 +34,7 @@
             </p>
           <% else %>
           <div class="col-12">
+            <br>
             <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
               <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
               <%= password_input(f, :password, class: "form-control", placeholder: "password") %>
@@ -30,18 +44,9 @@
           <% end %>
         </div>
       </nav>
-      <div class="col-4">
-        <%= if @current_user do %>
-          <p> You are logged in </p>
-        <% else %>
-        <div class="d-inline">
-          <p> Don't have an account yet? Register now </p>
-          <%= link "Register", to: Routes.user_path(@conn, :new) %>
-        </div>
-        <% end %>
+      </div>
       </div>
     </div>
-        
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
