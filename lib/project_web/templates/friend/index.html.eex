@@ -1,28 +1,11 @@
-<h1>Listing Friends</h1>
+<h1>My Friends</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Friend</th>
 
-      <th></th>
-    </tr>
-  </thead>
   <tbody>
 <%= for friend <- @friends do %>
-    <tr>
-      <td><%= friend.user_id %></td>
       <td><%= friend.friend_id %></td>
-
-      <td>
-        <%= link "Show", to: Routes.friend_path(@conn, :show, friend) %>
-        <%= link "Edit", to: Routes.friend_path(@conn, :edit, friend) %>
-        <%= link "Delete", to: Routes.friend_path(@conn, :delete, friend), method: :delete, data: [confirm: "Are you sure?"] %>
-      </td>
-    </tr>
 <% end %>
   </tbody>
-</table>
 
-<span><%= link "New Friend", to: Routes.friend_path(@conn, :new) %></span>
+
+<span><%= link "Add a New Friend", to: Routes.friend_path(@conn, :new)%></span>

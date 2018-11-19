@@ -7,10 +7,12 @@
     <p>Privacy: 
     <%= if(preference.privacy) do %>
       Private profile </p>
+    <% else %>
+      Public profile </p>
     <% end %>
   </li>
   <li>
-    <p>Notifications frequencyo:
+    <p>Notifications frequency:
     <%= preference.notify_freq %> hour(s) </p>
   </li>
     <%= link("Edit", to: Routes.preference_path(@conn, :edit, preference), class: "btn btn-info") %>

@@ -5,15 +5,11 @@
     </div>
   <% end %>
 
-  <%= label f, :user_id %>
-  <%= number_input f, :user_id %>
+  <%= label f, :user_email %>
+  <%= text_input f, :username %>
   <%= error_tag f, :user_id %>
 
-  <%= label f, :friend_id %>
-  <%= number_input f, :friend_id %>
-  <%= error_tag f, :friend_id %>
+  <%= submit "Add to friends", class: "btn btn-primary" %>
+  
 
-  <div>
-    <%= submit "Save" %>
-  </div>
 <% end %>
