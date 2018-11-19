@@ -5,15 +5,22 @@
     </div>
   <% end %>
 
-  <%= label f, :privacy %>
-  <%= checkbox f, :privacy %>
-  <%= error_tag f, :privacy %>
+  <div class="form-group">
+    <p> Check de checkbox if you want your profile to be private ---
+    <%= label f, :privacy %>
+    <%= checkbox f, :privacy %>  </p>
+    <%= error_tag f, :privacy %>
+  </div>
 
-  <%= label f, :notify_freq %>
-  <%= text_input f, :notify_freq %>
-  <%= error_tag f, :notify_freq %>
+  <hr>
+  <div class="form-group" >
+    <p> Insert how frequently you would like to get notifications --- 
+    <%= label f, :frequency %>
+    <%= text_input f, :notify_freq %> hours </p>
+    <%= error_tag f, :notify_freq %>
+  </div>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

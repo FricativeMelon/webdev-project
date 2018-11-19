@@ -1,4 +1,4 @@
-<h1>New Preference</h1>
+<h1>Preferences configuration</h1>
 
 <%= render "form.html", Map.put(assigns, :action, Routes.preference_path(@conn, :create)) %>
 

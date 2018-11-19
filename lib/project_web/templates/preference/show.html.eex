@@ -1,18 +1,23 @@
-<h1>Show Preference</h1>
+<h1>Preferences confirmed</h1>
 
 <ul>
 
   <li>
     <strong>Privacy:</strong>
-    <%= @preference.privacy %>
+    <%= if @preference.privacy do %>
+      <p>Private profile</p>
+    <% else %>
+      <p>Public profile </p>
+    <% end %>
   </li>
 
   <li>
-    <strong>Notify freq:</strong>
-    <%= @preference.notify_freq %>
+    <strong>Notification frequency:</strong>
+    <p> Every <%= @preference.notify_freq %> hour(s) </p>
   </li>
 
 </ul>
 
-<span><%= link "Edit", to: Routes.preference_path(@conn, :edit, @preference) %></span>
-<span><%= link "Back", to: Routes.preference_path(@conn, :index) %></span>
+<span><%= link "Edit my preferences", to: Routes.preference_path(@conn, :edit, @preference) %></span>
+<br>
+<span><%= link "Go Back", to: Routes.preference_path(@conn, :index) %></span>
