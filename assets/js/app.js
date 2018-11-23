@@ -21,13 +21,14 @@ import $ from 'jquery';
 // import socket from "./socket"
 import socket from "./socket";
 import project_init from "./project";
+import food_init from "./food";
 
 function start() {
   let root = document.getElementById('root');
   if (root) {
     socket.connect();
     let channel = socket.channel("vittles:" + window.gameName, {});
-    project_init(root, channel);
+    food_init(root, channel);
   }
 }
 
