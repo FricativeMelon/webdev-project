@@ -5,8 +5,7 @@ defmodule Project.Fooditems.Fooditem do
 
   schema "fooditems" do
     field :name, :string
-    field :nutrition_id, :integer
-    field :datetime, :date
+    field :datetime, :integer
     field :user_id, :integer
     embeds_many :nutrients, Nutrients
 
