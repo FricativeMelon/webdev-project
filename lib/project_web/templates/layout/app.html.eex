@@ -10,8 +10,17 @@
      window.userToken = "<%= @user_token %>";
     </script>
   </head>
+  
   <body>
+    
     <main class="container">
+
+    <div class="row text-light bg-success">
+      <div class="column m-3 ">
+        <h1> Vittles - A nutrition tracker </h1>
+      </div>
+    </div>
+    
       <div class="row">
         <div class="col card">
             <%= if @current_user do %>
@@ -23,17 +32,16 @@
                 <a class="nav-link" href="/notifications">Notifications</a>
               </div>
             <% else %>
-            <br>
-            <br>
+          
             <div class="d-inline">
               <br>
               <p> Don't have an account yet? Register now </p>
-              <%= link "Register", to: Routes.user_path(@conn, :new) %>
+              <%= link "Register", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
             </div>
             <% end %>
         </div>
 
-          <div class="col-4">
+          <div class="col-5">
             <%= if @current_user do %>
               <p class="my-3">
                 User: <%= @current_user.email %> |
@@ -42,9 +50,10 @@
             <% else %>
             <div class="col card">
               <br>
+              <p class="m-3"> Already have an account? </p>
               <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
-                <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
-                <%= password_input(f, :password, class: "form-control", placeholder: "password") %>
+                <%= text_input(f, :email, class: "form-control m-2", placeholder: "email")%>
+                <%= password_input(f, :password, class: "form-control m-2", placeholder: "password") %>
                 <%= submit "Login", class: "btn btn-secondaty" %>
               <% end %>
             </div>

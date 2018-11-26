@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-  <div class="card">
+  <div>
     <div class="card-body">
       <h5 class="card-title">Enter your email, name and password to create an account</h5>
       <div class="form-group">
