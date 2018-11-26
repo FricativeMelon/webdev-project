@@ -17,6 +17,7 @@ class Food extends React.Component {
       date: new Date(),
       time: new Date()
     };
+    console.log(window.userToken);
   }
 
   search() {
