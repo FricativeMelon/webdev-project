@@ -13,3 +13,4 @@ defmodule Project.Repo.Migrations.CreateNotifications do
 
   end
 end
+

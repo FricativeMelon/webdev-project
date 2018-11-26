@@ -21,13 +21,20 @@ import $ from 'jquery';
 // import socket from "./socket"
 import socket from "./socket";
 import project_init from "./project";
+import friends_init from "./friends"
 
 function start() {
   let root = document.getElementById('root');
   if (root) {
     socket.connect();
-    let channel = socket.channel("vittles:" + window.gameName, {});
+    let channel = socket.channel("vittles:" + "default", {});
     project_init(root, channel);
+  }
+  let friends_root = document.getElementById("friends_root");
+  if (friends_root) {
+    socket.connect();  
+    let channel = socket.channel("vittles:" + "default", {});
+    friends_init(friends_root, channel);
   }
 }
 

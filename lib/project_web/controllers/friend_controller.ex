@@ -5,7 +5,7 @@ defmodule ProjectWeb.FriendController do
   alias Project.Friends.Friend
 
   def index(conn, _params) do
-    friends = Friends.list_friends()
+    friends = Enum.map(Friends.list_friends(), fn f -> Project.Users.get_user!(f.friend_id).email end)
     render(conn, "index.html", friends: friends)
   end
 
@@ -14,8 +14,10 @@ defmodule ProjectWeb.FriendController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"friend" => friend_params}) do
-    case Friends.create_friend(friend_params) do
+  def create(conn, %{"requester" => requester, "accepter" => accepter}) do
+    req_user = Project.Users.get_user_by_email(requester)
+    acc_user = Project.Users.get_user_by_email(accepter)
+    case Friends.create_friend(%{"status" => 0, "user_id" => req_user.id, "friend_id" => acc_user.id}) do
       {:ok, friend} ->
         conn
         |> put_flash(:info, "Friend created successfully.")

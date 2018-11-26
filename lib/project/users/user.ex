@@ -8,6 +8,8 @@ defmodule Project.Users.User do
     field :name, :string
     field :password_hash, :string
 
+    many_to_many :friends, Project.Users.User, join_through: Project.Friends.Friend, join_keys: [user_id: :id, contact_id: :id]
+
     timestamps()
   end
 

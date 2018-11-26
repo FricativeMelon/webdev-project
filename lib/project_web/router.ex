@@ -22,18 +22,23 @@ defmodule ProjectWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/ajax", ProjectWeb do
+    pipe_through :ajax
+ 
+    resources "/friends", FriendController
+  end
 
   scope "/", ProjectWeb do
     pipe_through :browser
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/friends", FriendController
     resources "/preferences", PreferenceController
     resources "/achievements", AchievementController
     resources "/goals", GoalController
     resources "/fooditems", FooditemController
     resources "/notifications", NotificationController
-    resources "/friends", FriendController
     resources "/calendars", CalendarController
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
     post "/join", PageController, :join

@@ -1,11 +1,13 @@
-<h1>My Friends</h1>
+<div class="row">
+  <div class="column">
+    <h1>Vittles: Friends Page</h1>
+    <div id="friends_root">
+      React component loading...
+    </div>
+  </div>
+</div>
 
-
-  <tbody>
-<%= for friend <- @friends do %>
-      <td><%= friend.friend_id %></td>
-<% end %>
-  </tbody>
-
-
-<span><%= link "Add a New Friend", to: Routes.friend_path(@conn, :new)%></span>
+<script>
+  window.friends = <%= [] %>;
+  window.current_user = <%= raw Jason.encode!(@current_user.email |> IO.inspect(label: "CURRENT_USER")) %>
+</script>
