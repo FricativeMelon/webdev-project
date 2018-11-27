@@ -4,8 +4,9 @@ defmodule Project.Friends.Friend do
 
 
   schema "friends" do
-    field :friend_id, :integer
-    field :user_id, :integer
+    field :status, :integer
+    belongs_to :user, Project.Users.User
+    belongs_to :friend, Project.Users.User
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Project.Friends.Friend do
   @doc false
   def changeset(friend, attrs) do
     friend
-    |> cast(attrs, [:user_id, :friend_id])
-    |> validate_required([:user_id, :friend_id])
+    |> cast(attrs, [:status, :user_id, :friend_id])
+    |> validate_required([:status, :user_id, :friend_id])
   end
 end

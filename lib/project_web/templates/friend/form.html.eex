@@ -5,9 +5,9 @@
     </div>
   <% end %>
 
-  <%= label f, :user_email %>
-  <%= text_input f, :username %>
-  <%= error_tag f, :user_id %>
+  <%= label f, :email %>
+  <%= text_input f, :email %>
+  <%= error_tag f, :email %>
 
   <%= submit "Add to friends", class: "btn btn-primary" %>
   

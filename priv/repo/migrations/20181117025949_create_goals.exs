@@ -11,3 +11,4 @@ defmodule Project.Repo.Migrations.CreateGoals do
     create index(:goals, [:user_id])
   end
 end
+

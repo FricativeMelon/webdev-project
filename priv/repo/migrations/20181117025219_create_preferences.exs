@@ -11,3 +11,4 @@ defmodule Project.Repo.Migrations.CreatePreferences do
 
   end
 end
+

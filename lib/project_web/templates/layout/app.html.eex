@@ -7,7 +7,7 @@
     <title>Project · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script>
-     window.userToken = "<%= @user_token %>";
+      window.userToken = "<%= assigns[:user_token] %>"
     </script>
   </head>
   

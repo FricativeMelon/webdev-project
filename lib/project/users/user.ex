@@ -9,6 +9,9 @@ defmodule Project.Users.User do
 
     field :password_hash, :string
 
+
+    many_to_many :friends, Project.Users.User, join_through: Project.Friends.Friend, join_keys: [user_id: :id, contact_id: :id]
+
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
 
