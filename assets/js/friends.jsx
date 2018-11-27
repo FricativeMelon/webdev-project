@@ -69,7 +69,6 @@ class Friends extends React.Component {
 }
 
 function FriendsList(props) {
-    let filt = _.filter(props.friends)
     let rows = _.map(props.friends, (ff, i) => <Friend key={i} friend={ff} />);
     return <div className="row">
       <div className="col-12">
@@ -90,7 +89,7 @@ function FriendsList(props) {
   function Friend(props) {
     let {friend} = props;
     return <tr>
-      <td>{friend.id}</td>
+      <td>{friend}</td>
     </tr>;
   }
 

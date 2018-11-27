@@ -9,5 +9,5 @@
 
 <script>
   window.friends = <%= raw Jason.encode!(@friends) %>;
-  window.current_user = <%= raw Jason.encode!(@current_user.email) %>;
+  window.current_user = <%= raw Jason.encode!(if @current_user do @current_user.email else "" end)%>;
 </script>

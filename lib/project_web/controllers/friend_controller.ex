@@ -5,7 +5,7 @@ defmodule ProjectWeb.FriendController do
   alias Project.Friends.Friend
 
   def index(conn, _params) do
-    friends = Enum.map(Friends.list_friends(), fn f -> Project.Users.get_user!(f.friend_id).email end)
+    friends = Enum.map(Friends.list_friends(), fn ff -> Project.Users.get_user!(ff.friend_id).email end)
     render(conn, "index.html", friends: friends)
   end
 
