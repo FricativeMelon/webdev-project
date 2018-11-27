@@ -1,4 +1,5 @@
-<section>
-  <h1>Welcome to Vittles!</h1>
-  <p>A nutrition tracker.</p>
-</section>
+<%= if @current_user do %>
+
+    <div id="home"/>
+<% end %>
+

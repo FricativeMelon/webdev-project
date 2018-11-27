@@ -1,0 +1,5 @@
+<h1>Edit Achievement</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.achievement_path(@conn, :update, @achievement)) %>
+
+<span><%= link "Back", to: Routes.achievement_path(@conn, :index) %></span>

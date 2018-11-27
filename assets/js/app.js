@@ -13,8 +13,49 @@ import "phoenix_html"
 import jQuery from 'jquery';
 window.jQuery = window.$ = jQuery;
 import "bootstrap";
+import $ from 'jquery';
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+import socket from "./socket";
+import project_init from "./project";
+import friends_init from "./friends"
+import food_init from "./food";
+import stats_init from "./stats";
+import calendar_init from "./calendar";
+
+function start() {
+  let home = document.getElementById('home');
+  if (home) {
+    socket.connect();
+    let channel = socket.channel("vittles:" + "default", {});
+    stats_init(home, channel);
+  }
+  let calendar = document.getElementById('calendar');
+  if (calendar) {
+    socket.connect();
+    let channel = socket.channel("vittles:" + "default", {});
+    calendar_init(calendar, channel);
+  }
+  
+  let friends_root = document.getElementById("friends_root");
+  if (friends_root) {
+    socket.connect();  
+    let channel = socket.channel("vittles:" + "default", {});
+    friends_init(friends_root, channel);
+  }
+  
+  let food = document.getElementById('food');
+  if (food) {
+    socket.connect();
+    let channel = socket.channel("vittles:" + "default", {});
+    food_init(food, channel);
+  }
+}
+
+$(start);
+
+
+

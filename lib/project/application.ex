@@ -11,9 +11,10 @@ defmodule Project.Application do
       # Start the Ecto repository
       Project.Repo,
       # Start the endpoint when the application starts
-      ProjectWeb.Endpoint
+      ProjectWeb.Endpoint,
       # Starts a worker by calling: Project.Worker.start_link(arg)
       # {Project.Worker, arg},
+      Project.GameServer,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
