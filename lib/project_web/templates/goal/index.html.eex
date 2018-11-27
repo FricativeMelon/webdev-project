@@ -1,28 +1,20 @@
-<h1>Listing Goals</h1>
+<h1 class="m-3">My Goals</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Description</th>
-
-      <th></th>
-    </tr>
-  </thead>
+ 
   <tbody>
 <%= for goal <- @goals do %>
     <tr>
-      <td><%= goal.user_id %></td>
+      <div class="m-3 col-4">
       <td><%= goal.description %></td>
-
+      </div>
       <td>
-        <%= link "Show", to: Routes.goal_path(@conn, :show, goal) %>
-        <%= link "Edit", to: Routes.goal_path(@conn, :edit, goal) %>
-        <%= link "Delete", to: Routes.goal_path(@conn, :delete, goal), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Edit", to: Routes.goal_path(@conn, :edit, goal), class: "btn btn-info" %>
+        <%= link "Delete", to: Routes.goal_path(@conn, :delete, goal), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Goal", to: Routes.goal_path(@conn, :new) %></span>
+<span><%= link "New Goal", to: Routes.goal_path(@conn, :new), class: "btn btn-primary" %></span>

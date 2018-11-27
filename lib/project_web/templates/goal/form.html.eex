@@ -5,15 +5,12 @@
     </div>
   <% end %>
 
-  <%= label f, :user_id %>
-  <%= number_input f, :user_id %>
-  <%= error_tag f, :user_id %>
-
+<div class = "form-group">
   <%= label f, :description %>
-  <%= textarea f, :description %>
-  <%= error_tag f, :description %>
-
-  <div>
-    <%= submit "Save" %>
-  </div>
+  <%= text_input f, :description, class: "form-control" %>
+  <%= error_tag f, :description%>
+</div>
+<div>
+  <%= submit "Set this goal", class: "btn btn-primary" %>
+</div>
 <% end %>

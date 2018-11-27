@@ -1,8 +1,9 @@
 defmodule ProjectWeb.SessionController do
     use ProjectWeb, :controller
 
-    def create(conn, %{"email" => email}) do
-        user = Project.Users.get_user_by_email(email)
+    def create(conn, %{"email" => email, "password" => password }) do
+        IO.inspect({email, password})
+        user = get_and_auth_user(email, password)
         if user do
             conn
             |> put_session(:user_id, user.id)
@@ -14,6 +15,14 @@ defmodule ProjectWeb.SessionController do
             |> redirect(to: Routes.page_path(conn, :index))
         end
     end
+
+    def get_and_auth_user(email, password) do
+        user = Project.Users.get_user_by_email(email)
+        case Comeonin.Argon2.check_pass(user, password) do
+            {:ok, user} -> user
+            _else -> nil
+        end
+      end
 
     def delete(conn, _params) do 
         conn

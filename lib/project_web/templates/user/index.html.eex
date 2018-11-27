@@ -1,13 +1,10 @@
-<h1>Listing Users</h1>
+<h1 class="m-2">List of actual users in this app </h1>
 
-<table>
+<table class="m-2">
   <thead>
     <tr>
-      <th>Email</th>
+      <th>Email</th>    
       <th>Name</th>
-      <th>Password hash</th>
-
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,12 +12,7 @@
     <tr>
       <td><%= user.email %></td>
       <td><%= user.name %></td>
-      <td><%= user.password_hash %></td>
-
       <td>
-        <%= link "Show", to: Routes.user_path(@conn, :show, user) %>
-        <%= link "Edit", to: Routes.user_path(@conn, :edit, user) %>
-        <%= link "Delete", to: Routes.user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"] %>
       </td>
     </tr>
 <% end %>

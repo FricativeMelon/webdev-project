@@ -56,7 +56,8 @@ defmodule ProjectWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ProjectWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ProjectWeb do
+    pipe_through :api
+    get "/edamam/:id", EdamamController, :show
+  end
 end

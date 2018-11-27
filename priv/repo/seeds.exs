@@ -13,8 +13,11 @@
 alias Project.Repo
 alias Project.Users.User
 
+pwhash = Argon2.hash_pwd_salt("alicepassword")
+pwhash2 = Argon2.hash_pwd_salt("bobpassword")
 
 
-Repo.insert!(%User{email: "alice@example.com", name: "Alice", password_hash: "alicepassword"})
-Repo.insert!(%User{email: "bob@example.com", name: "Bob", password_hash: "bobpassword"})
+
+Repo.insert!(%User{email: "alice@example.com", name: "Alice", password_hash: pwhash})
+Repo.insert!(%User{email: "bob@example.com", name: "Bob", password_hash: pwhash2})
 

@@ -5,7 +5,6 @@ defmodule Project.Goals.Goal do
 
   schema "goals" do
     field :description, :string
-    field :user_id, :integer
 
     timestamps()
   end
@@ -13,7 +12,7 @@ defmodule Project.Goals.Goal do
   @doc false
   def changeset(goal, attrs) do
     goal
-    |> cast(attrs, [:user_id, :description])
-    |> validate_required([:user_id, :description])
+    |> cast(attrs, [:description])
+    |> validate_required(:description)
   end
 end

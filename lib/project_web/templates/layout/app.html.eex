@@ -10,25 +10,35 @@
       window.userToken = "<%= assigns[:user_token] %>"
     </script>
   </head>
+  
   <body>
+    
     <main class="container">
+
+    <div class="row text-light bg-success">
+      <div class="column m-3 ">
+        <h1> Vittles - A nutrition tracker </h1>
+      </div>
+    </div>
+    
       <div class="row">
         <div class="col card">
             <%= if @current_user do %>
               <div class="row">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/fooditems">Log new meal</a>
                 <a class="nav-link" href="/preferences">Preferences</a>
                 <a class="nav-link" href="/calendars">Calendar</a>
                 <a class="nav-link" href="/goals">Goals</a>
                 <a class="nav-link" href="/friends">Friends</a>
                 <a class="nav-link" href="/notifications">Notifications</a>
-
-
               </div>
             <% else %>
+          
             <div class="d-inline">
               <br>
               <p> Don't have an account yet? Register now </p>
-              <%= link "Register", to: Routes.user_path(@conn, :new) %>
+              <%= link "Register", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
             </div>
             <% end %>
         </div>
@@ -42,9 +52,10 @@
             <% else %>
             <div class="col card">
               <br>
+              <p class="m-3"> Already have an account? </p>
               <%= form_for @conn, Routes.session_path(@conn, :create), [class: "form-inline"], fn f -> %>
-                <%= text_input(f, :email, class: "form-control", placeholder: "email")%>
-                <%= password_input(f, :password, class: "form-control", placeholder: "password") %>
+                <%= text_input(f, :email, class: "form-control m-2", placeholder: "email")%>
+                <%= password_input(f, :password, class: "form-control m-2", placeholder: "password") %>
                 <%= submit "Login", class: "btn btn-secondaty" %>
               <% end %>
             </div>
