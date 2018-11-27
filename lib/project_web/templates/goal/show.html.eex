@@ -3,11 +3,6 @@
 <ul>
 
   <li>
-    <strong>User:</strong>
-    <%= @goal.user_id %>
-  </li>
-
-  <li>
     <strong>Description:</strong>
     <%= @goal.description %>
   </li>

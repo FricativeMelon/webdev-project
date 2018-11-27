@@ -1,20 +1,16 @@
-<h1>Listing Goals</h1>
+<h1 class="m-3">My Goals</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Description</th>
-
+      <th>Goal Description</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for goal <- @goals do %>
     <tr>
-      <td><%= goal.user_id %></td>
       <td><%= goal.description %></td>
-
       <td>
         <%= link "Show", to: Routes.goal_path(@conn, :show, goal) %>
         <%= link "Edit", to: Routes.goal_path(@conn, :edit, goal) %>
