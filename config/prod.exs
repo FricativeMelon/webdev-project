@@ -14,7 +14,7 @@ server: true,
 root: ".",
 version: Application.spec(:phoenix_distillery, :vsn),
 http: [:inet6, port: {:system, "PORT"}],
-  url: [host: "project.abdul.gold", port: 80],
+  url: [host: "nutrition.abdul.gold", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
