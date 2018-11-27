@@ -22,14 +22,31 @@ import $ from 'jquery';
 import socket from "./socket";
 import project_init from "./project";
 import food_init from "./food";
-
+import stats_init from "./stats";
+import calendar_init from "./calendar";
 function start() {
-  let root = document.getElementById('root');
-  if (root) {
+  let home = document.getElementById('home');
+  if (home) {
     socket.connect();
     let channel = socket.channel("vittles:" + window.gameName, {});
-    food_init(root, channel);
+    stats_init(home, channel);
   }
+  let calendar = document.getElementById('calendar');
+  if (calendar) {
+    socket.connect();
+    let channel = socket.channel("vittles:" + window.gameName, {});
+    calendar_init(calendar, channel);
+  }
+  let food = document.getElementById('food');
+  if (food) {
+    socket.connect();
+    let channel = socket.channel("vittles:" + window.gameName, {});
+    food_init(food, channel);
+  }
+
 }
 
 $(start);
+
+
+

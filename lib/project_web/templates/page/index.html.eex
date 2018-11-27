@@ -1,1 +1,5 @@
+<%= if @current_user do %>
+
+    <div id="home"/>
+<% end %>
 
