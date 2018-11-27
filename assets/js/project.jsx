@@ -62,3 +62,4 @@ function InputBox(props) {
     <p><input type="text" onKeyPress={props.message} /></p>
   </div>;
 }
+
