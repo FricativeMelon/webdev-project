@@ -3,8 +3,8 @@ defmodule Project.Repo.Migrations.CreateGoals do
 
   def change do
     create table(:goals) do
-      add :user_id, references(:users, on_delete: :delete_all), null: false
-      add :description, :text
+      add :user_id, references(:users, on_delete: :delete_all)
+      add :description, :string
 
       timestamps()
     end

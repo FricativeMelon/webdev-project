@@ -6,8 +6,9 @@
   <% end %>
 
 <div class = "form-group">
-  <p> Goal description </p>
+  <%= label f, :description %>
   <%= text_input f, :description, class: "form-control" %>
+  <%= error_tag f, :description%>
 </div>
 <div>
   <%= submit "Set this goal", class: "btn btn-primary" %>
