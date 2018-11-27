@@ -8,6 +8,6 @@
 </div>
 
 <script>
-  window.friends = <%= [] %>;
-  window.current_user = <%= raw Jason.encode!(@current_user.email |> IO.inspect(label: "CURRENT_USER")) %>
+  window.friends = <%= raw Jason.encode!(@friends) %>;
+  window.current_user = <%= raw Jason.encode!(@current_user.email) %>;
 </script>

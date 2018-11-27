@@ -21,7 +21,7 @@ defmodule ProjectWeb.FriendController do
       {:ok, friend} ->
         conn
         |> put_flash(:info, "Friend created successfully.")
-        |> redirect(to: Routes.friend_path(conn, :show, friend))
+        |> redirect(to: Routes.friend_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

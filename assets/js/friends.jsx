@@ -5,7 +5,6 @@ import _ from 'lodash';
 export default function friends_init(root, channel) {
   let friends = window.friends;
   let current_user = window.current_user;
-  console.log("CURRENT USER INIT: " + current_user);
   ReactDOM.render(<Friends friends={friends} current_user={current_user} channel={channel} />, root);
 }
 
@@ -14,7 +13,6 @@ class Friends extends React.Component {
     super(props);
 
     this.channel = props.channel;
-    console.log("CURRENT USER REACT INIT: " + props.current_user)
     this.state = {
       messages: [],
       friends: props.friends,
@@ -43,9 +41,7 @@ class Friends extends React.Component {
     ev.preventDefault()
     let form = $("#friend-input-form")
     let email = form.find("[type=email]").val()
-    let user = $('current_user')
-    console.log(user)
-    this.create_friend(user, email)
+    this.create_friend(this.state.current_user, email)
   }
 
   create_friend(requester, accepter) {
@@ -74,7 +70,7 @@ class Friends extends React.Component {
 
 function FriendsList(props) {
     let filt = _.filter(props.friends)
-    let rows = _.map(props.friends, (ff) => <Friend key={ff.id} friend={ff} />);
+    let rows = _.map(props.friends, (ff, i) => <Friend key={i} friend={ff} />);
     return <div className="row">
       <div className="col-12">
 	<table className="table table-striped">
