@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Project · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    
     <script>
       window.userToken = "<%= assigns[:user_token] %>"
-    </script>
-
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
+      var OneSignal = window.OneSignal || [];
   OneSignal.push(function() {
     OneSignal.init({
       appId: "1def42a6-9def-43d0-9b0e-31744f065b15",
     });
   });
-</script>
+    
+    </script>
+
   </head>
   
   <body>

@@ -2,13 +2,3 @@
   <div class="column">
     <h1> Vittles - A nutrition tracker </h1>
 </div>
-
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "1def42a6-9def-43d0-9b0e-31744f065b15",
-    });
-  });
-</script>
